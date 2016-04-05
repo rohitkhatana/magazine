@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Create Article</h1>
+  </div>
+</div>
+<%= form_for @article, url: article_index_path do |f| %>
+  <%= render partial: 'article/partials/form',  :locals => {:f => f} %>
+<% end %>

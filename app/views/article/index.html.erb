@@ -1,18 +1,26 @@
-<div class="panel panel-default">
-	<div class="panel-heading">
-    <h3 class="panel-title">Articles
-    	<%= link_to "New Article", new_article_path, :class => "pull-right" %>
-    </h3>
-
-  </div>
-  <div class="panel-body">
-		<div class="row">
-		  <% if @articles.blank? %>
-		  	<div class="col-md-12">
-		  		<h2>There is no article yet.</h2>
-		  	</div>
-		  <% else %>
-		  <% end %>
+<div class="row">
+<div class="col-md-6">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+	    <h3 class="panel-title">Articles
+	    	<%= link_to "New Article", new_article_path, :class => "pull-right" %>
+	    </h3>
+	  </div>
+	  <div class="panel-body">
+			<div class="row">
+			  <% if @articles.blank? %>
+			  	<div class="col-md-12">
+			  		<h2>There is no article yet.</h2>
+			  	</div>
+			  <% else %>
+			  	<% @articles.each do |article|%>
+			  		<div class="col-md-12">
+			  			<%= link_to article.glance, article_path(article.id) %>
+			  		</div>
+			  	<% end %>
+			  <% end %>
+			</div>
 		</div>
 	</div>
+</div>
 </div>

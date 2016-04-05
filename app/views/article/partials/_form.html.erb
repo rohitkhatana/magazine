@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, autofocus: true, class: 'form-control', placeholder: 'title', value: @article.title, required: true %>
+      <p class="help-block">Title</p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <%= f.label :body %>
+      <%= f.text_area :body, autofocus: true, class: 'form-control', placeholder: 'body', value: @article.body, required: true %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <div class="col-md-6">
+      <button type="submit" class="btn btn-sm btn-warning">Submit </button>
+    </div>
+  </div> 
+</div>
