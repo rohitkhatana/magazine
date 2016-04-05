@@ -1,0 +1,20 @@
+<hr>
+<h5>Comments</h5>
+<div class="row">
+	<% @article.comments.each do |comment|%>
+		<div class="panel panel-success">
+			<div class="panel-heading"> 
+				<div class="panel-title text-capitalize">
+					<%= comment.user.name %>&nbsp;&nbsp;
+					<small>
+						<%= time_ago_in_words(comment.created_at) %>
+					</small>
+				</div>
+			</div>
+			<div class="panel-body">
+			<div class="col-md-12">
+				<small><%= comment.msg %></small>
+			</div>
+		</div>
+	<% end %>
+</div>

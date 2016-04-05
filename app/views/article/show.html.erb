@@ -2,13 +2,17 @@
 	<div class="col-md-6">
 		<div class="panel panel-success">
 			<div class="panel-heading">
-	    	<h3 class="panel-title"><%= @article.title%></h3>
+	    		<h3 class="panel-title"><%= @article.title%></h3>
+	  		</div>
 	  	</div>
 	  	<div class="panel panel-body">
 	  		<p>
 	  			<%= @article.body %>
 	  		</p>
+	  		<%= render partial: 'comment/partials/comment' %>
 	  	</div>
-		</div>
+	  	<div class="panel-footer">
+	  		<%= render partial: 'comment/partials/form' %>
+	  	</div>
 	</div>
 </div>
