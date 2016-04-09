@@ -25,7 +25,7 @@ class CommentController < ApplicationController
 	private 
 		def valid_comment?
 			if comment_id
-				return Comment.find(comment_id) != nil
+				return Comment.where(id: comment_id).present?
 			end
 			true
 		end

@@ -10,7 +10,6 @@ class ArticleController < ApplicationController
 	def create
 		@article = Article.new(article_param)
 		@article.author = current_user
-
 		if @article.save!
 			redirect_to article_index_path 
 		else 
