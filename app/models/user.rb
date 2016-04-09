@@ -40,7 +40,7 @@ class User
   has_many :articles, inverse_of: :author, class_name: 'Article'
   has_many :comments
   
-  validates_presence_of  :email, :encrypted_password, acceptance: true  
+  validates_presence_of  :email, :encrypted_password, :name, acceptance: true  
   validates_uniqueness_of :email
 
 end

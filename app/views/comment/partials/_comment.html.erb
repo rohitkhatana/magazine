@@ -25,12 +25,18 @@
 			<div class="col-md-12">
 				<%= comment.msg %>
 				<div class="reply">
-					<%= render partial: 'comment/partials/comment', locals: {comments: comment.replies}%>
+					<button class="btn btn-primary showReplyForm" data-type="reply"
+					 	data-path="<%= article_comment_index_path(@article.id) %>" data-comment-id="<%= comment.id %>">reply
+					 </button>
+					<div id="comment-<%= comment.id %>"></div>
+					<%= render partial: 'comment/partials/comment', locals: {comments: comment.replies}  %>
 				</div>
 			</div>
+			<% unless comment.comment %>
 			<div class="col-md-12">
 				<%= render partial: 'comment/partials/form', locals: {type: 'reply', comment: comment.id} %>
 			</div>
+			<% end %>
 		</div>
 	</div>
 	<hr>
