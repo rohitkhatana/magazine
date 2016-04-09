@@ -9,4 +9,9 @@ class Comment
 
   belongs_to :comment, :class_name => 'Comment', :inverse_of => :replies
   has_many :replies, :class_name => 'Comment', :inverse_of => :comment
+
+
+  def delete_allowed? current_user
+  	current_user == user and replies.blank?
+  end
 end

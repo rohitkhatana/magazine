@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'home#home'
 
   resources :article do
-    resources :comment, only: [:create, :delete]
+    resources :comment, only: [:create, :destroy]
   end
   match '*path' => redirect('/'), via: :get
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,19 +1,35 @@
-<hr>
-<h5>Comments</h5>
+
 <div class="row">
-	<% @article.comments.each do |comment|%>
+	<% comments.each do |comment|%>
 		<div class="panel panel-success">
 			<div class="panel-heading"> 
 				<div class="panel-title text-capitalize">
-					<%= comment.user.name %>&nbsp;&nbsp;
-					<small>
-						<%= time_ago_in_words(comment.created_at) %>
-					</small>
+					<div class="row">
+						<div class="col-md-6">
+							<%= comment.user.name %>&nbsp;&nbsp;
+							<small>
+								<%= time_ago_in_words(comment.created_at) %> 
+							</small>
+						</div>
+						<% if comment.delete_allowed?(current_user)%>
+							<div class="col-md-6">
+								<span class="pull-right">
+									<%= link_to "delete", article_comment_path(@article.id, comment.id), method: :delete %>
+								</span>
+							</div>
+						<% end %>
+					</div>
 				</div>
 			</div>
 			<div class="panel-body">
 			<div class="col-md-12">
-				<small><%= comment.msg %></small>
+				<%= comment.msg %>
+				<div class="reply">
+					<%= render partial: 'comment/partials/comment', locals: {comments: comment.replies}%>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<%= render partial: 'comment/partials/form', locals: {type: 'reply', comment: comment.id} %>
 			</div>
 		</div>
 	<% end %>
