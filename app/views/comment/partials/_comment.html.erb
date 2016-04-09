@@ -3,10 +3,10 @@
 	<% comments.each do |comment|%>
 		<div class="panel panel-success">
 			<div class="panel-heading"> 
-				<div class="panel-title text-capitalize">
+				<div class="panel-title ">
 					<div class="row">
-						<div class="col-md-6">
-							<%= comment.user.name %>&nbsp;&nbsp;
+						<div class="col-md-6 ">
+							<span class="text-capitalize"><%= comment.user.name %>&nbsp;&nbsp;</span>
 							<small>
 								<%= time_ago_in_words(comment.created_at) %> 
 							</small>
@@ -32,5 +32,7 @@
 				<%= render partial: 'comment/partials/form', locals: {type: 'reply', comment: comment.id} %>
 			</div>
 		</div>
+	</div>
+	<hr>
 	<% end %>
 </div>
