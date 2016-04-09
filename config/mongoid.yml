@@ -87,11 +87,14 @@ development:
 
     # Ensure all times are UTC in the app side. (default: false)
     # use_utc: false
-    
+
 production: 
     sessions:
         default:
-            uri: ENV["DB_URL"]
+            uri: <%= ENV["DB_URL"] %>
+            options:
+                max_retries: 5
+                pool_size: 5
 
 test:
   sessions:
